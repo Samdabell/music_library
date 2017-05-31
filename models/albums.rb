@@ -18,4 +18,11 @@ class Album
     @id = saved_album[0]['id'].to_i
   end
 
+  def self.all()
+    sql = "SELECT * FROM albums;"
+    albums = SqlRunner.run(sql)
+    return albums.map {|album_hash| Album.new(album_hash)}
+  end
+
+
 end
