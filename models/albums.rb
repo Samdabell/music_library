@@ -19,7 +19,7 @@ class Album
   end
 
   def artist()
-    sql = "SELECT * FROM artists WHERE id = #{@artist_id}"
+    sql = "SELECT * FROM artists WHERE id = #{@artist_id};"
     result = SqlRunner.run(sql)
     artist_hash =  result.first()
     artist = Artist.new(artist_hash)
@@ -32,7 +32,7 @@ class Album
   end
 
   def delete()
-    sql = "DELETE FROM albums WHERE id = #{@id}"
+    sql = "DELETE FROM albums WHERE id = #{@id};"
     SqlRunner.run(sql)
   end
 
@@ -43,8 +43,16 @@ class Album
   end
 
   def self.delete_all()
-    sql = "DELETE FROM albums"
+    sql = "DELETE FROM albums;"
     SqlRunner.run(sql)
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM albums WHERE id = #{id} ;"
+    result = SqlRunner.run(sql)
+    album_hash =  result.first()
+    album = Album.new(album_hash)
+    return album
   end
 
 end
