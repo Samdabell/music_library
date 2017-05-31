@@ -1,32 +1,39 @@
 require 'pry-byebug'
-require_relative 'models/pizza_order'
-require_relative 'models/customer'
+require_relative 'models/artists'
+require_relative 'models/albums'
 
-artist1 = ({
+artist1 = Artist.new({
   'name' => 'Phantogram'
   })
 
-artist2 = ({
+artist2 = Artist.new({
   'name' => 'Justice'
   })
 
-album1 = ({
+artist1.save()
+artist2.save()
+
+album1 = Album.new({
   'title' => 'Three',
   'genre' => 'Electro Rock',
   'artist_id' => artist1.id
   })
 
-album2 = ({
+album2 = Album.new({
   'title' => 'Cross',
   'genre' => 'Electonic',
   'artist_id' => artist2.id
   })
 
-album3 = ({
+album3 = Album.new({
   'title' => 'Woman',
   'genre' => 'Electonic',
   'artist_id' => artist2.id
   })
+
+album1.save()
+album2.save()
+album3.save()
 
 binding.pry
 nil
